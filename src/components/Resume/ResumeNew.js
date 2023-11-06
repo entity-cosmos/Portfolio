@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
-import pdf from "../../Assets/../Assets/Soumyajit_Behera-BIT_MESRA.pdf";
+import pdf from "../../Assets/../Assets/Srajan_Resume.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
@@ -15,6 +15,17 @@ function ResumeNew() {
     setWidth(window.innerWidth);
   }, []);
 
+  const handleDownload = () => {
+    // Construct the URL to your PDF file in the public directory
+    const pdfUrl = pdf;
+
+    // Create an anchor element and simulate a click event to trigger the download
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = 'Srajan_B_Shetty_Resume.pdf';
+    link.click();
+  };
+
   return (
     <div>
       <Container fluid className="resume-section">
@@ -22,8 +33,7 @@ function ResumeNew() {
         <Row style={{ justifyContent: "center", position: "relative" }}>
           <Button
             variant="primary"
-            href={pdf}
-            target="_blank"
+            onClick={handleDownload}
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
@@ -40,8 +50,7 @@ function ResumeNew() {
         <Row style={{ justifyContent: "center", position: "relative" }}>
           <Button
             variant="primary"
-            href={pdf}
-            target="_blank"
+            onClick={handleDownload}
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
