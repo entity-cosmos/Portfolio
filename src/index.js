@@ -3,18 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import analytics from '@vercel/analytics';
-
-const analyticsClient = analytics('prj_JLraOt61o7ZaZFmLqsD23z8enn8S');
-
-analyticsClient.track('page_view', {
-  path: window.location.pathname,
-  referrer: document.referrer,
-});
+import { Analytics } from '@vercel/analytics/react';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <Analytics />
   </React.StrictMode>,
   document.getElementById("root")
 );
